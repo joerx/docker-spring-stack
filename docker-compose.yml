@@ -17,10 +17,14 @@ services:
       - backend
     environment:
       SPRING_PROFILES_ACTIVE: staging
+      DATASOURCE_URL: jdbc:postgresql://postgres:5432/application
+      DATASOURCE_USER: postgres
+      DATASOURCE_PASSWORD: postgres
     volumes:
+      - "webapps:/usr/local/tomcat/webapps"
       - "./conf/manager-context.xml:/usr/local/tomcat/webapps/manager/META-INF/context.xml"
       - "./conf/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml"
-
+      
   postgres:
     image: postgres:9.4
     volumes:
@@ -45,3 +49,4 @@ networks:
 
 volumes:
   db-data:
+  webapps:
