@@ -16,7 +16,7 @@ services:
     networks:
       - backend
     environment:
-      SPRING_PROFILES_ACTIVE: staging
+      SPRING_PROFILES_ACTIVE: dev
       DATASOURCE_URL: jdbc:postgresql://postgres:5432/application
       DATASOURCE_USER: postgres
       DATASOURCE_PASSWORD: postgres
